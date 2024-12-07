@@ -3,11 +3,12 @@ name = "seedling"
 version = "1.0.0"
 edition = "2021"
 authors = ["Terah <terah.dev@gmail.com"]
+description = "A Rust crate for hierarchical seeded pseudo-random number generators."
 license = "MIT"
 readme = "README.md"
 homepage = "https://github.com/terahlunah/seedling"
 repository = "https://github.com/terahlunah/seedling"
-keywords = ["rng", "random","tree", "prng", "seed"]
+keywords = ["rng", "random", "tree", "prng", "seed"]
 
 [dependencies]
 rand_core = "^0.6.4"

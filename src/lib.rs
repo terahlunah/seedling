@@ -19,9 +19,9 @@ impl<Rng: SeedableRng + RngCore> TreeRng<Rng> {
             rng: Rng::seed_from_u64(seed),
         }
     }
-    
+
     pub fn child(&self, index: u64) -> TreeRng<Rng> {
-        let sub_seed = Rng::seed_from_u64(self.seed+index).next_u64();
+        let sub_seed = Rng::seed_from_u64(self.seed + index).next_u64();
         TreeRng::new(sub_seed)
     }
 }
