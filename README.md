@@ -8,11 +8,13 @@
 
 ---
 
-**Seedling** is a Rust crate for creating hierarchical pseudo-random number generators (PRNGs) based on the `rand_pcg` algorithm. It provides a simple way to organize RNGs into a tree-like structure, ensuring reproducible and independent random sequences.
+**Seedling** is a Rust crate for creating hierarchical pseudo-random number generators (PRNGs).
+It provides a simple way to organize RNGs into a tree-like structure, ensuring reproducible and independent random
+sequences.
 
 ```toml
 [dependencies]
-seedling = "1.0.0"
+seedling = "1.0.1"
 ```
 
 ## Features
@@ -35,13 +37,13 @@ fn main() {
     // It is recommended to use constants for subtree indexes to prevent accidental index changes
     const FEATURE_1_INDEX: u64 = 1;
     const FEATURE_2_INDEX: u64 = 2;
-    
+
     // Indexes are arbitrary and just need to be unique per `TreeRng`
     const FEATURE_2_1_INDEX: u64 = 1;
 
     // The root seed of the tree
     let root_seed = 42;
-    
+
     // Create a new top-level RNG
     let mut root_rng = TreeRng64::new(root_seed);
 
@@ -52,10 +54,9 @@ fn main() {
     // Create another child RNG with a different index
     let mut feature_2_rng = root_rng.child(FEATURE_2_INDEX);
     println!("Feature 2 RNG u64: {}", feature_2_rng.next_u64());
-    
+
     // Children of `TreeRng` are themselves `TreeRng` and the hierarchy can grow to arbitrary depth
     let feature_2_1_rng = feature_2_rng.child(FEATURE_2_1_INDEX);
-    
 }
 ```
 
@@ -67,4 +68,5 @@ fn main() {
 - `TreeRng64`: A 64-bit RNG based on `Pcg64`.
 - `TreeRngFast`: A fast RNG based on `Pcg64Mcg`.
 
-`seedling` is also easily extensible and `TreeRng<T>` will work with any type implementing `RngCore` and `SeedableRng` from `rand_core`.
+`seedling` is also easily extensible and `TreeRng<T>` will work with any type implementing `RngCore` and `SeedableRng`
+from `rand_core`.

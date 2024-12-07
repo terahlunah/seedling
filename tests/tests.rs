@@ -35,8 +35,8 @@ fn test_child_basic_determinism() {
     let rng_1 = TreeRng64::new(42);
     let rng_2 = TreeRng64::new(42);
 
-    assert_eq!(rng_1.child(0).seed, rng_2.child(0).seed);
-    assert_eq!(rng_1.child(1).seed, rng_2.child(1).seed);
+    assert_eq!(rng_1.child(0).seed(), rng_2.child(0).seed());
+    assert_eq!(rng_1.child(1).seed(), rng_2.child(1).seed());
 
     let mut child_1 = rng_1.child(0);
     let mut child_2 = rng_2.child(0);
@@ -63,8 +63,8 @@ fn test_child_creation_isolation() {
     let mut rng_2 = TreeRng64::new(42);
 
     let v1 = rng_1.next_u64();
-    assert_eq!(rng_1.child(0).seed, rng_2.child(0).seed);
+    assert_eq!(rng_1.child(0).seed(), rng_2.child(0).seed());
     let v2 = rng_2.next_u64();
     assert_eq!(v1, v2);
-    assert_eq!(rng_1.child(1).seed, rng_2.child(1).seed);
+    assert_eq!(rng_1.child(1).seed(), rng_2.child(1).seed());
 }

@@ -1,6 +1,6 @@
 [package]
 name = "seedling"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2021"
 authors = ["Terah <terah.dev@gmail.com"]
 description = "A Rust crate for hierarchical seeded pseudo-random number generators."
