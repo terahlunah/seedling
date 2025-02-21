@@ -2,7 +2,7 @@
 //! algorithm. It provides a simple way to organize RNGs into a tree-like structure, ensuring reproducible and independent
 //! random sequences.
 
-use rand_core::{Error, RngCore, SeedableRng};
+use rand_core::{RngCore, SeedableRng};
 use rand_pcg::{Pcg32, Pcg64, Pcg64Mcg};
 
 pub use rand_core;
@@ -62,9 +62,5 @@ impl<Rng: RngCore> RngCore for TreeRng<Rng> {
 
     fn fill_bytes(&mut self, dest: &mut [u8]) {
         self.rng.fill_bytes(dest);
-    }
-
-    fn try_fill_bytes(&mut self, dest: &mut [u8]) -> Result<(), Error> {
-        self.rng.try_fill_bytes(dest)
     }
 }

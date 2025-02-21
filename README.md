@@ -14,7 +14,7 @@ sequences.
 
 ```toml
 [dependencies]
-seedling = "1.0.1"
+seedling = "1.1.0"
 ```
 
 ## Features

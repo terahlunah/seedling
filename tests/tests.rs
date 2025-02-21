@@ -1,4 +1,4 @@
-use seedling::{rand_core::RngCore, TreeRng64};
+use seedling::{TreeRng64, rand_core::RngCore};
 
 #[test]
 fn test_basic_determinism() {
