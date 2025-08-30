@@ -25,7 +25,7 @@ pub type TreeRng64Fast = TreeRng<Pcg64Mcg>;
 /// # Type Parameters
 ///
 /// - `Rng`: A PRNG type that implements both `SeedableRng` and `RngCore`.
-pub struct TreeRng<Rng> {
+pub struct TreeRng<Rng = Pcg64Mcg> {
     seed: u64,
     rng: Rng,
 }
